@@ -12,7 +12,7 @@ import time
 
 ###get intirinsics#####
 
-calibFileName='calib.txt'
+calibFileName='00/calib.txt'
 calibFile = open(calibFileName, 'r').readlines()
 
 P1Vals = calibFile[0].split()
@@ -33,7 +33,7 @@ for row in range(3):
 ######initialization###########
 
 groundTruthTraj = []
-poseFile ='00.txt'
+poseFile ='00/00.txt'
 # poseFile ='02/02.txt'
 fpPoseFile = open(poseFile, 'r')
 groundTruthTraj = fpPoseFile.readlines()
@@ -76,15 +76,13 @@ start_time = time.time()
 for frm in range(startFrame+1, endFrame+1,keyFrame):
     
     print(frm)
-    ImT1_L = cv.imread('image_0/'+'{0:06d}'.format(frm-1)+'.png', 0)  # 0 flag returns a grayscale image
-    ImT1_R = cv.imread('image_1/'+'{0:06d}'.format(frm-1)+'.png', 0)
-    ImT2_L = cv.imread('image_0/'+'{0:06d}'.format(frm)+'.png', 0)
-    ImT2_R = cv.imread('image_1/'+'{0:06d}'.format(frm)+'.png', 0)
+    ImT1_L = cv.imread('00/image_0/'+'{0:06d}'.format(frm-1)+'.png', 0)  # 0 flag returns a grayscale image
+    ImT1_R = cv.imread('00/image_1/'+'{0:06d}'.format(frm-1)+'.png', 0)
+    ImT2_L = cv.imread('00/image_0/'+'{0:06d}'.format(frm)+'.png', 0)
+    ImT2_R = cv.imread('00/image_1/'+'{0:06d}'.format(frm)+'.png', 0)
 
     p0,p1,p2,p3,p4,errs=getStrongFeatures(ImT1_L,ImT1_R,ImT2_L,ImT2_R, lk_params, harrisFeatureParams, distanceThreshold, featureEngine, useCorners, bucketingH, bucketingW)
-   
-
-    # p0 is T1_L, p1 is T1_R, p2 is T2_R, p3 is T2_L
+       # p0 is T1_L, p1 is T1_R, p2 is T2_R, p3 is T2_L
 
     if p0.shape[0]<6:
         print('oops! '+ str(frm))
