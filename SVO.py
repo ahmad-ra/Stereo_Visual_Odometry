@@ -70,7 +70,7 @@ bucketingW=20
 
 ###########################
 
-savedPoses = open('savedPoses.txt', 'w')
+# savedPoses = open('savedPoses.txt', 'w')
 
 start_time = time.time()
 for frm in range(startFrame+1, endFrame+1,keyFrame):
@@ -145,15 +145,14 @@ for frm in range(startFrame+1, endFrame+1,keyFrame):
     else:
         rotation = Rmat
 
-    line=''
-    for i in range(3):
-        for j in range(3):
-            line= line+str(rotation[i,j])+' '
-        line=line+str(translation[i,0])+' '
+    # line=''
+    # for i in range(3):
+    #     for j in range(3):
+    #         line= line+str(rotation[i,j])+' '
+    #     line=line+str(translation[i,0])+' '
 
-    # line=line+str(translation[0,0])+' '+str(translation[1,0])+' '+str(translation[2,0])     
-    savedPoses.write(line[:-1])
-    savedPoses.write('\n')
+    # savedPoses.write(line[:-1])
+    # savedPoses.write('\n')
 
     #####plotting######
     canvasWCorr = 290
@@ -191,4 +190,4 @@ cv.waitKey()
 cv.destroyAllWindows()
 
 
-savedPoses.close()
+# savedPoses.close()
