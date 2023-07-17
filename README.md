@@ -12,8 +12,6 @@ Then run:
 
 `python ./SVO.py`
 
-*Currently, the code is hardcoded for sequence 00 of KITTI
-
 
 After this, a window similar as the one below will be shown.
  
